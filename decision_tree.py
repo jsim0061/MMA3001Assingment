@@ -57,7 +57,7 @@ def main():
     print('Split sizes:', len(train), len(validation), len(test))
     print(f'Zero-occupancy percentage: {100 * data["current_occupancy"].eq(0).mean():.1f}%')
 
-    model = DecisionTreeRegressor(max_depth=5, min_samples_leaf=10, random_state=42)
+    model = DecisionTreeRegressor(max_depth=20, min_samples_leaf=250, random_state=42)
     model.fit(train[FEATURES], train[TARGET])
     predictions = {
         'Training': model.predict(train[FEATURES]),
